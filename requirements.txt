@@ -3,6 +3,6 @@ torch @ https://download.pytorch.org/whl/cu121/torch-<version>-cp310-cp310-linux
 torchvision @ https://download.pytorch.org/whl/cu121/torchvision-<version>-cp310-cp310-linux_x86_64.whl
 
 # Additional dependencies
-numpy
-scipy
-pillow
+pytorch-lightning==2.4.0
+imgaug==0.4.0
+numpy==1.23.5
