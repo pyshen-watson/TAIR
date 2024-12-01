@@ -1,1 +1,1 @@
-from .CUB200 import CUB200
+from .dataModule import DataModule
