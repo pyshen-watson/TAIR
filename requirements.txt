@@ -1,0 +1,8 @@
+# PyTorch installation with CUDA 12.1
+torch @ https://download.pytorch.org/whl/cu121/torch-<version>-cp310-cp310-linux_x86_64.whl
+torchvision @ https://download.pytorch.org/whl/cu121/torchvision-<version>-cp310-cp310-linux_x86_64.whl
+
+# Additional dependencies
+numpy
+scipy
+pillow

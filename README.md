@@ -6,7 +6,5 @@ The **Task-Aware Image Restoration (TAIR)** is a research project focusing on dy
 
 ### Prerequisites
 1. Python 3.10 or later
-2. Install required dependencies (to be added in future updates)
-
-<!-- ```bash
-pip install -r requirements.txt -->
+2. NVIDIA CUDA Toolkit version 12.2 (or compatible GPU drivers)
+3. `pip install -r requirements.txt`
