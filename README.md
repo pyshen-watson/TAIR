@@ -13,5 +13,5 @@ The **Task-Aware Image Restoration (TAIR)** is a research project focusing on dy
 
 1. Create degraded dataset
     1. `cd data` and follow the instruction in `README.md` to download the datasets.
-    2. `cd ..` and run `python create_degraded_dataset.py -s [src_dir] -d [degraded_type]` to create degraded dataset.
+    2. `cd ..` and run `python 0_create_degraded_dataset.py -s [src_dir] -d [degraded_type]` to create degraded dataset.
 2. Train the clear model
