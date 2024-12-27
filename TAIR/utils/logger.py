@@ -5,7 +5,7 @@ from colorama import Fore, Style
 
 class FileFormatter(logging.Formatter):
 
-    def __init__(self, fmt="[%(levelname)s] (%(funcName)s:%(lineno)d) %(message)s"):
+    def __init__(self, fmt="[%(levelname)s] (%(filename)s:%(lineno)d) %(message)s"):
         super(FileFormatter, self).__init__(fmt)
         self.START_TIME = perf_counter()
 
@@ -20,7 +20,7 @@ class FileFormatter(logging.Formatter):
 
 class StreamFormatter(logging.Formatter):
 
-    def __init__(self, fmt="[%(funcName)s:%(lineno)d] %(message)s"):
+    def __init__(self, fmt="[%(filename)s:%(lineno)d] %(message)s"):
 
         super(StreamFormatter, self).__init__(fmt)
 
