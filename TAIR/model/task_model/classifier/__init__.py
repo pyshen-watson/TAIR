@@ -1,5 +1,5 @@
 import logging
-from .classifier import ResNet18, ResNet50
+from .classifier import Classifier, ResNet18, ResNet50
 from .classifierWrapper import ClassifierConfig, ClassifierWrapper
 
 def create_classifier(model_name: str, n_classes: int, config: ClassifierConfig) :

@@ -11,8 +11,8 @@ from .classifier import Classifier
 @dataclass
 class ClassifierConfig:
     exp_name: str
-    lr: float = 1e-3
-    wd: float = 1e-3
+    lr: float = 1e-4
+    wd: float = 1e-4
     degraded: bool = False
     log_dir: str = "logs"
     hp: dict = None
