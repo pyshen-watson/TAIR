@@ -39,12 +39,15 @@ class StreamFormatter(logging.Formatter):
         return prefix + msg + suffix
 
 
-def setup_logger(level=logging.INFO, log_path="log"):
-
-    file_handler = logging.FileHandler(log_path, mode="w")
-    file_handler.setFormatter(FileFormatter())
+def setup_logger(level=logging.INFO, export_log=False):
 
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(StreamFormatter())
+    handlers = [stream_handler]
+    
+    if export_log:
+        file_handler = logging.FileHandler("log", mode="w")
+        file_handler.setFormatter(FileFormatter())
+        handlers.append(file_handler)
 
-    logging.basicConfig(level=level, handlers=[file_handler, stream_handler])
+    logging.basicConfig(level=level, handlers=handlers)
