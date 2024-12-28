@@ -1,1 +1,1 @@
-from .dataModule import DataModule
+from .dataModule import DataModuleConfig, DataModule
