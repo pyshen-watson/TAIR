@@ -16,7 +16,7 @@ def get_args():
 
 def get_degrader(name: str) -> iaa.Augmenter:
     
-    # Define the degraders
+    # Define the degrader
     degraders = {
         "fog": iaa.Fog(),
         "cloud": iaa.Clouds(),

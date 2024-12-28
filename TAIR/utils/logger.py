@@ -5,7 +5,7 @@ from colorama import Fore, Style
 
 class FileFormatter(logging.Formatter):
 
-    def __init__(self, fmt="[%(levelname)s] (%(funcName)s:%(lineno)d) %(message)s"):
+    def __init__(self, fmt="[%(levelname)s] (%(filename)s:%(lineno)d) %(message)s"):
         super(FileFormatter, self).__init__(fmt)
         self.START_TIME = perf_counter()
 
@@ -20,7 +20,7 @@ class FileFormatter(logging.Formatter):
 
 class StreamFormatter(logging.Formatter):
 
-    def __init__(self, fmt="[%(funcName)s:%(lineno)d] %(message)s"):
+    def __init__(self, fmt="[%(filename)s:%(lineno)d] %(message)s"):
 
         super(StreamFormatter, self).__init__(fmt)
 
@@ -39,12 +39,15 @@ class StreamFormatter(logging.Formatter):
         return prefix + msg + suffix
 
 
-def setup_logger(level=logging.INFO, log_path="log"):
-
-    file_handler = logging.FileHandler(log_path, mode="w")
-    file_handler.setFormatter(FileFormatter())
+def setup_logger(level=logging.INFO, export_log=False):
 
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(StreamFormatter())
+    handlers = [stream_handler]
+    
+    if export_log:
+        file_handler = logging.FileHandler("log", mode="w")
+        file_handler.setFormatter(FileFormatter())
+        handlers.append(file_handler)
 
-    logging.basicConfig(level=level, handlers=[file_handler, stream_handler])
+    logging.basicConfig(level=level, handlers=handlers)
