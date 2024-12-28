@@ -1,3 +1,4 @@
+import torch
 import pytorch_lightning as pl
 from pytorch_lightning.loggers import TensorBoardLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
@@ -7,6 +8,7 @@ from TAIR.utils.logger import setup_logger
 from TAIR.dataset import DataModuleConfig, DataModule
 from TAIR.model.task_model.classifier import ClassifierConfig, create_classifier
 
+torch.set_float32_matmul_precision('high')
 
 def get_args():
     parser = ArgumentParser()
@@ -57,7 +59,7 @@ def get_model(args, n_classes, log_dir):
 
 def get_trainer(args):
 
-    devices = [int(args.devices) if args.devices != "auto" else args.devices]
+    devices = [int(args.devices)] if args.devices != "auto" else args.devices
     ckpt_name = "{epoch}-{step}-{val_loss:.4f}-{val_acc:.4f}"
 
     return pl.Trainer(
