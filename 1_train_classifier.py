@@ -24,7 +24,7 @@ def get_args():
     # Trainer
     parser.add_argument("--max_epochs", type=int, default=40)
     parser.add_argument("--devices", type=str, default="auto", choices=["auto", "0", "1"])
-    parser.add_argument("--patience", type=int, default=5)
+    parser.add_argument("--patience", type=int, default=3)
 
     # Experiment
     parser.add_argument("--exp_name", type=str, default="classifier")
@@ -56,10 +56,10 @@ def get_model(args, n_classes, log_dir):
 
 
 def get_trainer(args):
-    
+
     devices = [int(args.devices) if args.devices != "auto" else args.devices]
     ckpt_name = "{epoch}-{step}-{val_loss:.4f}-{val_acc:.4f}"
-    
+
     return pl.Trainer(
         accelerator="auto",
         devices=devices,
